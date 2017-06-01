@@ -55,20 +55,29 @@
                 <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
             </div>
             <div class="modal-body" style="padding:40px 50px;">
-                <form role="form">
+
+                <form role="form" id="form_entrar">
                     <div class="form-group">
-                        <label for="usrname"><span class="glyphicon glyphicon-user"></span> Usuario</label>
-                        <input type="text" class="form-control" id="usrname" placeholder="Introduzca su email">
+                        <label for="usuario"><span class="glyphicon glyphicon-user"></span> Usuario</label>
+                        <input type="text" class="form-control" id="usuario" name="Usuario"
+                               placeholder="Introduzca su email">
                     </div>
                     <div class="form-group">
                         <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Contraseña</label>
                         <input type="password" class="form-control" id="psw" placeholder="Introduzca su contraseña">
                     </div>
-                    <div class="checkbox">
+                    <!--<div class="checkbox">
                         <label><input type="checkbox" value="" checked>Remember me</label>
+                    </div>-->
+
+                    <div class="form-group">
+                        <div class="col-md-offset-5">
+                            <div id="messages"></div>
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-success btn-block"><span
-                                class="glyphicon glyphicon-off"></span> Login
+
+                    <button type="submit" class="btn btn-success btn-block" id="entrar"><span
+                                class="glyphicon glyphicon-off"></span> Entrar
                     </button>
                 </form>
             </div>
@@ -352,13 +361,6 @@
 <script src="<?php echo base_url(); ?>plugins/bootbox.min.js"></script>
 <!-- Template Specisifc Custom Javascript File -->
 <script src="<?php echo base_url(); ?>js/custom.js"></script>
-
+<script src="<?php echo base_url(); ?>js/funciones_auxiliares.js"></script>
 </body>
-<script>
-    $(document).ready(function () {
-        $("#login_entrar").click(function () {
-            $("#modal_login").modal();
-        });
-    });
-</script>
 </html>
