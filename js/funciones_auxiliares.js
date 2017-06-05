@@ -2,7 +2,7 @@
  * Created by Gonzalo on 01/06/2017.
  */
 
-$(document).ready(function () {
+/*$(document).ready(function () {
 
     //Se muestra el modal Login
     $("#login_entrar").click(function () {
@@ -22,7 +22,7 @@ $(document).ready(function () {
         // bootbox.alert(val_result);
 
     })
-});
+});*/
 
 function validar_formulario(campos) {
 

@@ -24,7 +24,7 @@
 </head>
 
 <body>
-<!--<div id="preloader"></div>-->
+<div id="preloader"></div>
 
 <!--==========================
   Seccion Windose
@@ -40,7 +40,7 @@
             <h2>Nosotros abrimos <span class="rotating">ventanas</span></h2>
             <div class="actions">
                 <a href="#que" class="btn-get-started">Empezar</a>
-                <a href="#" id="login_entrar" class="btn-login">Entrar/Registrarse</a>
+                <a href="<?= base_url()?>index.php/Login_CONT" id="login_entrar" class="btn-login">Entrar/Registrarse</a>
             </div>
         </div>
     </div>
@@ -56,7 +56,7 @@
             </div>
             <div class="modal-body" style="padding:40px 50px;">
 
-                <form role="form" id="form_entrar">
+                <form role="form" id="form_entrar" action=" <?= base_url(); ?>index.php/Login_CONT/entrar" method="post">
                     <div class="form-group">
                         <label for="usuario"><span class="glyphicon glyphicon-user"></span> Usuario</label>
                         <input type="text" class="form-control" id="usuario" name="Usuario"
@@ -66,9 +66,9 @@
                         <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Contraseña</label>
                         <input type="password" class="form-control" id="psw" placeholder="Introduzca su contraseña">
                     </div>
-                    <!--<div class="checkbox">
+                    <div class="checkbox">
                         <label><input type="checkbox" value="" checked>Remember me</label>
-                    </div>-->
+                    </div>
 
                     <div class="form-group">
                         <div class="col-md-offset-5">

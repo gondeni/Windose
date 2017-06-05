@@ -11,9 +11,11 @@
     <script href="<?= base_url() ?>plugins/bootstrap/js/bootstrap.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!--JavaScript-->
-    <script href="<?= base_url() ?>plugins/jquery-3.1.1.js"></script>
-    <script href="<?= base_url() ?>plugins/jquery-3.1.1.min.js"></script>
-    <script href="<?= base_url() ?>plugins/bootbox.min.js"></script>
+    <script src="<?php echo base_url(); ?>lib/jquery/jquery.min.js"></script>
+    <script src="<?php echo base_url(); ?>lib/jquery/jquery-migrate.min.js"></script>
+    <!--<script href="<?/*= base_url() */?>plugins/jquery-3.1.1.js"></script>
+    <script href="<?/*= base_url() */?>plugins/jquery-3.1.1.min.js"></script>
+    <script href="<?/*= base_url() */?>plugins/bootbox.min.js"></script>-->
     <style type="text/css">
         body {
             background-color: whitesmoke;
