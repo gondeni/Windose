@@ -18,6 +18,8 @@ class Cliente_MODEL extends CI_Model
         $this->db->set('email', $email);
         $this->db->set('preferencia', $preferencia);
         $this->db->insert('clientes');
+
+        //Mailer
     }
 
     public function buscarCliente($ID)

@@ -52,7 +52,7 @@ class Login_CONT extends CI_Controller
 
             redirect('Cliente_CONT');
         }
-//        $this->index();
+        $this->index();
 
 
     }

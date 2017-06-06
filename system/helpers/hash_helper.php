@@ -19,9 +19,9 @@ if(!function_exists('getHashedPassword'))
  * @param {string} $hashedPassword : This is hashed password
  */
 
-if(!function_exists('verifyHashedPassword'))
+if(!function_exists('verify'))
 {
-    function verifyHashedPassword($plainPassword, $hashedPassword)
+    function verify($plainPassword, $hashedPassword)
     {
         return password_verify($plainPassword, $hashedPassword) ? true : false;
     }
