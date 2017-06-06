@@ -5,12 +5,13 @@ class Cliente_MODEL extends CI_Model
     public function __construct()
     {
         parent::__construct();
+//        $this->load->library('PasswordHash', array(8, FALSE));
     }
 
     public function alta($ID = null, $usuario, $password, $nombre, $ciudad, $telefono, $email, $preferencia, $coach = null)
     {
-        $this->db->set('usuario', $this->encryption->encrypt($usuario));
-        $this->db->set('password', $this->encryption->encrypt($password));
+        $this->db->set('usuario', $usuario);
+        $this->db->set('password', getHashedPassword($password));
         $this->db->set('nombre', $nombre);
         $this->db->set('ciudad', $ciudad);
         $this->db->set('telefono', $telefono);
@@ -22,17 +23,7 @@ class Cliente_MODEL extends CI_Model
     public function buscarCliente($ID)
     {
 
-        $this->db->select("ID,
-                            usuario,
-                            AES_DECRYPT(password,'$this->keycrypt') as password,
-                            nombre,
-                            ciudad,
-                            telefono,
-                            email,
-                            preferencia,
-                            coach,
-                            permisos
-                            ");
+        $this->db->select("*");
         $this->db->from('clientes');
         $this->db->where('ID', $ID);
         $consulta = $this->db->get();
