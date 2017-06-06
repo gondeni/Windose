@@ -35,30 +35,24 @@ class Login_CONT extends CI_Controller
 
     public function entrar()
     {
+        $usuario = $this->input->post('usuario');
+        $password = $this->input->post('password');
+        $usuario = $this->Login_MODEL->esUsuario($usuario, $password);
+        if ($usuario) {
+            $data = array(
+                'is_logued' => TRUE,
+                'ID' => $usuario->ID,
+                'nombre' => $usuario->nombre,
+                'usuario' => $usuario->usuario,
+                'permisos' => $usuario->permisos
+            );
+            $this->session->set_userdata($data);
+            if ($this->session->userdata('permisos') == 1)
+                redirect('Empleado_CONT');
 
-        $this->form_validation->set_rules('usuario', 'nombre de usuario', 'required|trim|min_length[2]|max_length[150]');
-        $this->form_validation->set_rules('password', 'password', 'required|trim|min_length[5]|max_length[150]');
-
-        if ($this->form_validation->run() == FALSE)
-            $this->index();
-        else {
-            $usuario = $this->input->post('usuario');
-            $password = $this->input->post('password');
-            $usuario = $this->Login_MODEL->esUsuario($usuario, $password);
-            if ($usuario) {
-
-                $data = array(
-                    'is_logued' => TRUE,
-                    'ID' => $usuario->ID,
-                    'nombre' => $usuario->nombre,
-                    'usuario' => $usuario->usuario,
-                    'permisos' => $usuario->permisos
-                );
-                $this->session->set_userdata($data);
-
-            }
-            $this->index();
+            redirect('Cliente_CONT');
         }
+        $this->index();
 
 
     }

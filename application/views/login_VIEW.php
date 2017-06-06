@@ -17,7 +17,7 @@ $submit = array('name' => 'submit', 'value' => 'Entrar', 'title' => 'Entrar', 'c
         <p style="text-align: center;"><a href="<?= base_url(); ?>index.php/Alta_CONT" class="btn btn-primary">Registrarse</a>
         </p>
         <?= form_close() ?>
-        <p>
+        <p style="text-align: center;color: red; font-weight: bold;">
             <?php
             if ($this->session->flashdata('usuario_incorrecto'))
                 echo $this->session->flashdata('usuario_incorrecto');

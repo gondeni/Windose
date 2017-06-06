@@ -9,9 +9,9 @@
 $nombre = array('name' => 'nombre', 'placeholder' => 'nombre completo', 'class' => 'form-control input-sm');
 $ciudad = array('name' => 'ciudad', 'placeholder' => 'ciudad', 'class' => 'form-control input-sm');
 $telefono = array('name' => 'telefono', 'placeholder' => 'telefono', 'class' => 'form-control input-sm');
-$email = array('name' => 'email', 'placeholder' => 'email', 'class' => 'form-control input-sm');
-$preferencia = array('id'=>'preferencia','name' => 'preferencia', 'placeholder' => 'preferencia', 'class' => 'form-control input-sm');
-$usuario = array('name' => 'usuario', 'placeholder' => 'nombre de usuario', 'class' => 'form-control input-sm');
+$email = array('name' => 'email', 'placeholder' => 'email', 'class' => 'form-control input-sm email');
+$preferencia = array('id' => 'preferencia', 'name' => 'preferencia', 'placeholder' => 'preferencia', 'class' => 'form-control input-sm');
+$usuario = array('name' => 'usuario', 'placeholder' => 'nombre de usuario', 'class' => 'form-control input-sm usuario', 'readonly' => 'true');
 $password = array('name' => 'password', 'placeholder' => 'introduzca su contraseña', 'type' => 'password', 'class' => 'form-control input-sm');
 $submit = array('name' => 'submit', 'value' => 'Entrar', 'title' => 'Entrar', 'class' => 'btn btn-success'/*, 'onclick'=>'javascript:comprobarFormulario()'*/);
 $opciones = array('presencial', 'skype', 'otros');
@@ -42,9 +42,16 @@ $opciones = array('presencial', 'skype', 'otros');
         <?= form_close() ?>
     </div>
 </div>
-<script type="application/javascript">
-//Comprobaciones del formulario
-//function comprobarFormulario(){
-//    if()
-//}
+<script>
+    $(document).ready(function () {
+        $(".email").keyup(function () {
+            $(".usuario").val($(this).val());
+        });
+        $(".email").on('change', function () {
+            if ($(this).val() != $(".usuario").val())
+                $(".usuario").val($(this).val());
+        });
+
+    });
+
 </script>

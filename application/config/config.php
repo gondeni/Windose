@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 //$config['base_url'] = 'http://windose.es/';
 
-$config['base_url'] = 'http://localhost/Workspace/Code_Igniter/Windose/';
+$config['base_url'] = 'http://localhost/workspace/Windose/';
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +38,7 @@ $config['base_url'] = 'http://localhost/Workspace/Code_Igniter/Windose/';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = '';
+$config['index_page'] = 'index.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -226,7 +226,7 @@ $config['allow_get_array'] = TRUE;
 | your log files will fill up very fast.
 |
 */
-$config['log_threshold'] = 0;
+$config['log_threshold'] = 4;
 
 /*
 |--------------------------------------------------------------------------
@@ -327,7 +327,7 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/user_guide/libraries/encryption.html
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = 'ER$qVkc(aGC97%PrcnvXbJ$FeUJrgXmL';
 
 /*
 |--------------------------------------------------------------------------
