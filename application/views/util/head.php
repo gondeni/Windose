@@ -10,23 +10,23 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>\plugins\bootstrap\css\bootstrap.css">
     <script href="<?= base_url() ?>plugins/bootstrap/js/bootstrap.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <!--JavaScript-->
-    <script src="<?php echo base_url(); ?>lib/jquery/jquery.min.js"></script>
-    <script src="<?php echo base_url(); ?>lib/jquery/jquery-migrate.min.js"></script>
-    <!--<script href="<?/*= base_url() */?>plugins/jquery-3.1.1.js"></script>
-    <script href="<?/*= base_url() */?>plugins/jquery-3.1.1.min.js"></script>
-    <script href="<?/*= base_url() */?>plugins/bootbox.min.js"></script>-->
+    <!--Fullcalendar-->
+    <link rel='stylesheet' href='<?= base_url();?>plugins/fullcalendar-3.4.0/fullcalendar.css'/>
+    <!--<script href="<? /*= base_url() */ ?>plugins/jquery-3.1.1.js"></script>
+    <script href="<? /*= base_url() */ ?>plugins/jquery-3.1.1.min.js"></script>
+    <script href="<? /*= base_url() */ ?>plugins/bootbox.min.js"></script>-->
     <style type="text/css">
         body {
             background-color: whitesmoke;
             font-family: 'Roboto', sans-serif;
         }
 
-        .cab{
+        .cab {
             background-color: black;
-            color:black;
+            color: black;
             margin-top: 10px;
         }
+
         .login {
             border-style: outset;
             border-width: 1px;
@@ -36,9 +36,11 @@
             border-radius: 10px;
             background-color: whitesmoke;
         }
-        header{
+
+        header {
             background-color: black;
         }
+
         .seccion {
             padding: 20px;
             background-color: #EFEFEF;

@@ -5,6 +5,7 @@
  * Date: 07/03/2017
  * Time: 20:50
  */
+
 ?>
 
 <div class="mensajes">
@@ -45,36 +46,13 @@
 <div class="citas">
     <h3>Citas</h3>
     <hr>
-    <?php if (count($citas)) { ?>
-        <table class="table table-striped" style="text-align: center;">
-            <thead>
-            <tr>
-                <th>Fecha</th>
-                <th>Coach</th>
-                <th></th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php foreach ($citas as $cita) { ?>
-                <tr>
-                    <td><?php echo $cita->fecha ?></td>
-                    <td><?php echo $cita->coach ?></td>
-                    <td>
-                        <a class="btn btn-primary btn-sm"
-                           href="<?php echo site_url('Cita_CONT/modificar/' . $cita); ?>">Modificar</a>
-                    </td>
-                    <td><a class="btn btn-danger btn-sm"
-                           href="<?php echo site_url('Cita_CONT/borrar/' . $cita); ?>">Eliminar</a>
-                    </td>
-                </tr>
-            <?php } ?>
-            </tbody>
-        </table>
-    <?php } else { ?>
+    <div id="calendar"></div>
+    <?php /*if (count($citas)) { */?><!--
+
+    <?php /*} else { */?>
         <p>
             <small>No tiene citas asignadas</small>
         </p>
-    <?php } ?>
+    --><?php /*} */?>
 </div>
 

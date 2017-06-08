@@ -230,14 +230,5 @@ jQuery(document).ready(function ($) {
         $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
         return false;
     });
-
-    $('.pic').hover(function () {
-        $(this).animate({opacity: 0.7}, 500, 'easeInOutExpo');
-        $(this).next('.texto').animate({hidden: 'inherit'}, 500, 'easeInOutExpo');
-    }, function () {
-        $(this).animate({opacity: 1}, 500, 'easeInOutExpo');
-        if (!$('.texto').hasClass('hidden'))
-            $('.texto').addClass('hidden');
-    });
 });
 
