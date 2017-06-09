@@ -9,6 +9,7 @@ class Empleado_CONT extends CI_Controller
         $this->load->model('Empleado_MODEL');
         $this->load->model('Cita_MODEL');
         $this->load->model('Mensaje_MODEL');
+        $this->load->model('Cliente_MODEL');
 
     }
 
@@ -27,11 +28,12 @@ class Empleado_CONT extends CI_Controller
         );
         $datos = array(
             'mensajes' => $this->Mensaje_MODEL->buscarMensajes($this->session->userdata('ID')),
-            'citas' => $this->Cita_MODEL->buscarCitas()
+            'citas' => $this->Cita_MODEL->buscarCitas(),
+            'remitentes' =>$this->Cliente_MODEL->listarClientes()
         );
         $this->load->view('util/head');
         $this->load->view('util/cabecera_VIEW', $sesion);
-        $this->load->view('empleado_VIEW', $datos);
+        $this->load->view('general_VIEW', $datos);
         $this->load->view('util/foot');
     }
 }

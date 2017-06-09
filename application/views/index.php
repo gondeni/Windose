@@ -47,7 +47,7 @@
 </section>
 
 <!-- Modal Login-->
-<div class="modal fade" id="modal_login" role="dialog">
+<!--<div class="modal fade" id="modal_login" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header" style="padding:35px 50px;">
@@ -56,7 +56,7 @@
             </div>
             <div class="modal-body" style="padding:40px 50px;">
 
-                <form role="form" id="form_entrar" action=" <?= base_url(); ?>index.php/Login_CONT/entrar" method="post">
+                <form role="form" id="form_entrar" action=" <?/*= base_url(); */?>index.php/Login_CONT/entrar" method="post">
                     <div class="form-group">
                         <label for="usuario"><span class="glyphicon glyphicon-user"></span> Usuario</label>
                         <input type="text" class="form-control" id="usuario" name="Usuario"
@@ -92,14 +92,13 @@
 
     </div>
 </div>
-
+-->
 <!--==========================
   Seccion Header
 ============================-->
 
 <header id="header">
     <div class="container">
-
         <div id="logo" class="pull-left">
             <h1 style="color: whitesmoke;">Windose</h1>
             <!--<a href="#windose"><img src="img/logo.png" alt="" title="" /></img></a>-->

@@ -15,58 +15,61 @@
     <!--<script href="<? /*= base_url() */ ?>plugins/jquery-3.1.1.js"></script>
     <script href="<? /*= base_url() */ ?>plugins/jquery-3.1.1.min.js"></script>
     <script href="<? /*= base_url() */ ?>plugins/bootbox.min.js"></script>-->
-    <style type="text/css">
-        body {
-            background-color: whitesmoke;
-            font-family: 'Roboto', sans-serif;
-        }
 
-        .cab {
-            background-color: black;
-            color: black;
-            margin-top: 10px;
-        }
+    <link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet">
 
-        .login {
-            border-style: outset;
-            border-width: 1px;
-            box-shadow: 1px 1px 1px 1px;
-            margin-top: 200px;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: whitesmoke;
-        }
+    <!--    <style type="text/css">
+            body {
+                background-color: whitesmoke;
+                font-family: 'Roboto', sans-serif;
+            }
 
-        header {
-            background-color: black;
-        }
+            .cab {
+                background-color: black;
+                color: black;
+                margin-top: 10px;
+            }
 
-        .seccion {
-            padding: 20px;
-            background-color: #EFEFEF;
-            color: #565656;
-            border-radius: 5px;
-        }
+            .login {
+                border-style: outset;
+                border-width: 1px;
+                box-shadow: 1px 1px 1px 1px;
+                margin-top: 200px;
+                padding: 20px;
+                border-radius: 10px;
+                background-color: whitesmoke;
+            }
 
-        h2 {
-            color: #565656;
-        }
+            header {
+                background-color: black;
+            }
 
-        h3 {
-            color: #565656;
-        }
+            .seccion {
+                padding: 20px;
+                background-color: #EFEFEF;
+                color: #565656;
+                border-radius: 5px;
+            }
 
-        label {
-            color: #565656;
-        }
+            h2 {
+                color: #565656;
+            }
 
-        .error {
-            background-color: #FF3B3F;
-        }
-    </style>
-</head>
+            h3 {
+                color: #565656;
+            }
+
+            label {
+                color: #565656;
+            }
+
+            .error {
+                background-color: #FF3B3F;
+            }
+        </style>
+    --></head>
 <body>
 <header>
-    <h1 style="text-align: center; font-size: 5em; color: whitesmoke">Windose</h1>
+    <h1 id="logo" style="text-align: center; font-size: 5em;">Windose</h1>
 </header>
 <div class="container">

@@ -1,4 +1,4 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 class Empleado_MODEL extends CI_Model
 {
@@ -8,21 +8,26 @@ class Empleado_MODEL extends CI_Model
         parent::__construct();
     }
 
-    public function buscarEmpleado($ID){
+    public function buscarEmpleado($ID)
+    {
 
-        $this->db->select('*');
-        $this->db->from('empleados');
-        $this->db->where('ID',$ID);
-        $consulta=$this->db->get();
-        $resultado=$consulta->result();
+        if (isset($ID)) {
+            $this->db->select('*');
+            $this->db->from('empleados');
+            $this->db->where('ID', $ID);
+            $consulta = $this->db->get();
+            $resultado = $consulta->result();
+        } else
+            $resultado = null;
         return $resultado;
     }
-    public function listarEmpleados(){
 
+    public function listarEmpleados()
+    {
         $this->db->select('*');
         $this->db->from('empleados');
-        $consulta=$this->db->get();
-        $resultado=$consulta->result();
+        $consulta = $this->db->get();
+        $resultado = $consulta->result();
         return $resultado;
     }
 }

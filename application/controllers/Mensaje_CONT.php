@@ -26,26 +26,48 @@ class Mensaje_CONT extends CI_Controller
     */
     public function index($remitente = null, $destinatario = null)
     {
-        $sesion = array(
-            'nombre' => $this->session->userdata('nombre')
-        );
-        $datos = array(
-            'remitente' => $this->Empleado_MODEL->buscarEmpleado($destinatario),
-            'destinatario' => $this->Cliente_MODEL->buscarCliente($remitente)
-        );
-        /*var_dump($datos);
-        die();*/
+        if ($this->session->userdata('permisos') == 0) {
+            $datos = array(
+                'remitente' => $this->session->userdata,
+                'destinatario' => $this->Empleado_MODEL->buscarEmpleado($destinatario)
+            );
+        } else {
+            $datos = array(
+                'remitente' => $this->session->userdata,
+                'destinatario' => $this->Cliente_MODEL->buscarCliente($destinatario)
+            );
+        }
+
         $this->load->view("util/head");
-        $this->load->view("util/cabecera_VIEW", $sesion);
+        $this->load->view("util/cabecera_VIEW", $this->session->userdata);
         $this->load->view("mensaje_VIEW", $datos);
         $this->load->view("util/foot");
     }
 
-    public function enviar(){
-        $remitente=$this->input->post('remitente');
-        $destinatario=$this->input->post('destinatario');
-        $mensaje=$this->input->post('mensaje');
-        $this->Mensaje_MODEL->enviarMensaje($remitente,$destinatario,$mensaje);
-        redirect('Empleado_CONT');
+    public function enviar()
+    {
+        $remitente = $this->input->post('remitente');
+        $destinatario = $this->input->post('destinatario');
+        $mensaje = $this->input->post('mensaje');
+        if ($this->Mensaje_MODEL->enviarMensaje($remitente, $destinatario, $mensaje))
+            redirect('Empleado_CONT');
+        else {
+            $this->session->set_flashdata('destinatario_incorrecto', 'No existe el destinatario');
+            redirect(base_url() . 'index.php/Mensaje_CONT');
+        }
     }
+    /*
+        public function obtener_remitente($id_remitente)
+        {
+            //Si el usuario de sesión es Usuario, busca en Empleados al remitente
+            if ($this->session->userdata('permisos') == 0) {
+                $empleado = $this->Empleado_MODEL->buscarEmpleado($id_remitente);
+                return $empleado->nombre;
+            }
+            //Si no, busca en clientes
+            else {
+                $cliente = $this->Cliente_MODEL->buscarCliente($id_remitente);
+                return $cliente->nombre;
+            }
+        }*/
 }

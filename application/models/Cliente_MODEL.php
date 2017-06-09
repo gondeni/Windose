@@ -22,20 +22,21 @@ class Cliente_MODEL extends CI_Model
         //Mailer
     }
 
-    public function buscarCliente($ID)
+    public function buscarCliente($ID = null)
     {
-
-        $this->db->select("*");
-        $this->db->from('clientes');
-        $this->db->where('ID', $ID);
-        $consulta = $this->db->get();
-        $resultado = $consulta->result();
+        if (isset($ID)) {
+            $this->db->select("*");
+            $this->db->from('clientes');
+            $this->db->where('ID', $ID);
+            $consulta = $this->db->get();
+            $resultado = $consulta->result();
+        } else
+            $resultado = null;
         return $resultado;
     }
 
     public function listarClientes()
     {
-
         $this->db->select('*');
         $this->db->from('clientes');
         $consulta = $this->db->get();

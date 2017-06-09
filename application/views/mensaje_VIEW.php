@@ -8,27 +8,41 @@
 
 //Se debe controlar que los campos no sean nulos
 
-$remitente = array('name' => 'remitente', 'class' => 'form-control input-sm', 'value' => $remitente[0]->ID);
-$destinatario = array('name' => 'destinatario', 'placeholder' => 'Para', 'class' => 'form-control input-sm', 'value' =>$destinatario[0]->ID);
+$nombre_remitente = array('name' => 'remitente', 'class' => 'form-control input-sm', 'value' => $remitente['nombre'], 'readonly' => 'true');
+$id_remitente = array('name' => 'id_remitente', 'class' => 'form-control input-sm hidden', 'value' => $remitente['ID']);
+
+if (isset($destinatario[0])) {
+    $nombre_destinatario = array('name' => 'destinatario', 'placeholder' => 'Para', 'class' => 'form-control input-sm', 'value' => $destinatario[0]->ID);
+    $id_destinatario = array('name' => 'id_remitente', 'class' => 'form-control input-sm hidden', 'value' => $destinatario[0]->ID);
+} else {
+    $id_destinatario = array('name' => 'id_remitente', 'class' => 'form-control input-sm hidden', 'value' => '');
+    $nombre_destinatario = array('name' => 'destinatario', 'placeholder' => 'Para', 'class' => 'form-control input-sm', 'value' => '');
+}
 $mensaje = array('name' => 'mensaje', 'placeholder' => 'Escriba su mensaje', 'class' => 'form-control input-sm',);
 $submit = array('name' => 'submit', 'value' => 'Enviar', 'title' => 'Enviar', 'class' => 'btn btn-success');
 ?>
 <div class="mensaje">
-    <?=form_open('Mensaje_CONT/enviar')?>
-        <!--<input type="hidden" name="id_remitente" id="id_remitente" value="<?/*= $remitente[0]->ID */?>">
-        <input type="hidden" name="id_destinatario" id="id_destinatario" value="<?/*= $destinatario[0]->ID */?>">-->
-        <div class="form-group">
-            <label for="remitente">Remitente</label>
-            <?= form_input($remitente)?>
-        </div>
-        <div class="form-group">
-            <label for="destinatario">Destinatario</label>
-            <?= form_input($destinatario)?>
-        </div>
-        <div class="form-group">
-            <label for="mensaje">Mensaje</label>
-            <?= form_textarea($mensaje) ?>
-        </div>
-        <p><?= form_submit($submit) ?></p>
-    <?=form_close()?>
+    <?= form_open('Mensaje_CONT/enviar') ?>
+    <div class="form-group">
+        <label for="remitente">Remitente</label>
+        <?= form_input($nombre_remitente) ?>
+        <?= form_input($id_remitente) ?>
+    </div>
+    <div class="form-group">
+        <label for="destinatario">Destinatario</label>
+        <?= form_input($nombre_destinatario) ?>
+        <?= form_input($id_destinatario) ?>
+    </div>
+    <div class="form-group">
+        <label for="mensaje">Mensaje</label>
+        <?= form_textarea($mensaje) ?>
+    </div>
+    <p><?= form_submit($submit) ?><!--boton volver--></p>
+    <?= form_close() ?>
+    <p style="text-align: center;color: red; font-weight: bold;">
+        <?php
+        if ($this->session->flashdata('destinatario_incorrecto'))
+            echo $this->session->flashdata('destinatario_incorrecto');
+        ?>
+    </p>
 </div>
