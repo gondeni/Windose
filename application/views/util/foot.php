@@ -14,6 +14,8 @@
 <script src='<?= base_url(); ?>plugins/fullcalendar-3.4.0/lib/moment.min.js'></script>
 <script src='<?= base_url(); ?>plugins/fullcalendar-3.4.0/fullcalendar.js'></script>
 <script src='<?= base_url(); ?>plugins/fullcalendar-3.4.0/locale/es.js'></script>
+<!--Chat-->
+<script src='<?= base_url(); ?>plugins/simple_chat/js.js'></script>
 
 <script>
     /**

@@ -29,68 +29,16 @@ die();*/
             <div class="row">
                 <div class="mensajes-content">
                     <?php if (count($mensajes)) { ?>
-                        <table class="table table-striped tabla_mensajes" style="text-align: center;">
-                            <thead>
-                            <tr>
-                                <th>Fecha</th>
-                                <th>Remitente</th>
-                                <th>Asunto</th>
-                                <th>Mensaje</th>
-                                <?php
-                                if ($this->session->userdata('permisos') == 1) {
-                                    echo "<th></th>";
-                                }
-                                ?>
-                                <th></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php foreach ($mensajes as $mensaje) { ?>
-                                <tr>
-                                    <td id="fecha"><?php
-                                        $fecha_formateada=explode(' ',$mensaje->fecha);
-                                        $hora = $fecha_formateada[2];
-                                        $fecha = $fecha_formateada[1];
-                                        echo $hora."<br>".$fecha;
-                                        ?>
-                                    </td>
-                                    <td><?php
-                                        $fuente = substr($mensaje->cod_remitente, 0, 1);
-                                        $id_remitente = substr($mensaje->cod_remitente, 1);
-                                        if ($fuente == 'e') {
-                                            foreach ($empleados as $empleado) {
-                                                if ($empleado->ID == $id_remitente)
-                                                    echo $empleado->nombre;
-                                            }
-                                        } else {
-                                            foreach ($clientes as $cliente) {
-                                                if ($cliente->ID == $id_remitente)
-                                                    echo $cliente->nombre;
-                                            }
-                                        }
-                                        ?>
-                                    </td>
-                                    <td>
-                                        <?= $mensaje->asunto ?>
-                                    </td>
-                                    <td>
-                                        <?= $mensaje->mensaje ?>
-                                    </td>
-                                    <td>
-                                        <a class="btn btn-primary btn-sm"
-                                           href="<?= site_url('Mensaje_CONT/index/' . $mensaje->cod_remitente . '/' . $mensaje->cod_destinatario); ?>">Responder</a>
-                                    </td>
-                                    <?php
-                                    if ($this->session->userdata('permisos') == 1) {
-                                        $out = '<td><a class="btn btn-danger btn-sm" href="' . site_url("Mensaje_CONT/eliminar/" . $mensaje->cod_remitente . "/" . $mensaje->cod_destinatario) . '">Eliminar</a></td>';
-                                        echo $out;
-                                    }
-                                    ?>
-
-                                </tr>
-                            <?php } ?>
-                            </tbody>
-                        </table>
+                        <div class="col-sm-offset-1 col-sm-10 frame">
+                            <ul></ul>
+                            <div>
+                                <div class="msj-rta macro" style="margin:auto">
+                                    <div class="text text-r" style="background:whitesmoke !important">
+                                        <input class="mytext" placeholder="Type a message"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     <?php } else { ?>
                         <div class="col-md-offset-6">
                             <p>
