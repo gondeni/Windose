@@ -18,30 +18,32 @@ $opciones = array('presencial', 'skype', 'otros');
 ?>
 
 <!--form_dropdown('shirts', $options, 'large');-->
-<div class="col-md-offset-4 col-md-4 seccion">
-    <div class="form-group">
-        <h2 style="text-align: center; font-weight: bold;">Registro</h2>
-        <hr/>
-        <br/>
-        <?= form_open('Alta_CONT/alta') ?>
-        <label for="nombre">Nombre completo</label>
-        <?= form_input($nombre) ?>
-        <label for="ciudad">Ciudad</label>
-        <?= form_input($ciudad) ?>
-        <label for="telefono">Telefono</label>
-        <?= form_input($telefono) ?>
-        <label for="email">Email</label>
-        <?= form_input($email) ?>
-        <label for="preferencia">Preferencia de la sesión</label>
-        <?= form_dropdown($preferencia, $opciones, 'presencial') ?>
-        <label for="usuario">Usuario</label>
-        <?= form_input($usuario) ?>
-        <label for="password">Contraseña</label>
-        <?= form_input($password) ?><p><?= form_error('password') ?></p>
-        <div class="col-md-offset-4 col-md-4"><?= form_submit($submit) ?></div>
-        <?= form_close() ?>
+<section>
+    <div class="col-md-offset-4 col-md-4">
+        <div class="form-group">
+            <h2 style="text-align: center; font-weight: bold;">Registro</h2>
+            <hr/>
+            <br/>
+            <?= form_open('Alta_CONT/alta') ?>
+            <label for="nombre">Nombre completo</label>
+            <?= form_input($nombre) ?>
+            <label for="ciudad">Ciudad</label>
+            <?= form_input($ciudad) ?>
+            <label for="telefono">Telefono</label>
+            <?= form_input($telefono) ?>
+            <label for="email">Email</label>
+            <?= form_input($email) ?>
+            <label for="preferencia">Preferencia de la sesión</label>
+            <?= form_dropdown($preferencia, $opciones, 'presencial') ?>
+            <label for="usuario">Usuario</label>
+            <?= form_input($usuario) ?>
+            <label for="password">Contraseña</label>
+            <?= form_input($password) ?><p><?= form_error('password') ?></p>
+            <div class="col-md-offset-4 col-md-4"><?= form_submit($submit) ?></div>
+            <?= form_close() ?>
+        </div>
     </div>
-</div>
+</section>
 <script>
     $(document).ready(function () {
         $(".email").keyup(function () {

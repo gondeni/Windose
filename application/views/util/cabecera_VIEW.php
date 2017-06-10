@@ -6,15 +6,28 @@
  * Time: 20:39
  */
 ?>
-<div class="cab">
-    <p class="pull-left"">
-        <label>Bienvenido</label><br>
-        <?= $nombre ?>
-    </p>
-    <p class="pull-right">
-        <a href="<?= site_url('Login_CONT/salir') ?>" class="btn btn-danger">Salir</a>
-    </p>
+<div id="cabecera">
+    <div class="container wow fadeIn">
+        <div class="row">
+            <div class="col-sm-2">
+                <div id="reloj"></div>
+            </div>
+            <div class="col-sm-offset-10">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p class="cabecera-text">
+                            <label>Bienvenido</label><br>
+                            <?= $nombre ?>
+                        </p>
+                    </div>
+                    <div class="col-sm-offset-2">
+                        <p class="cabecera-text">
+                            <a href="<?= site_url('Login_CONT/salir') ?>" class="btn btn-danger">Salir</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<br>
-<br>
-<hr>
+</div>
