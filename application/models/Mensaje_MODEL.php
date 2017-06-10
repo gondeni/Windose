@@ -1,4 +1,4 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 class Mensaje_MODEL extends CI_Model
 {
@@ -8,28 +8,37 @@ class Mensaje_MODEL extends CI_Model
         parent::__construct();
     }
 
-    /*
-     * Metodo que lista los mensajes, pero no debe listar aquellos cuyo remitente sea la persona conectada a la sesion
-     */
-    public function buscarMensajes($ID){
+    public function buscarMensajes($ID)
+    {
 
         $this->db->select('*');
         $this->db->from('mensajes');
 //        $this->db->where('id_remitente!=',$ID);
-        $consulta=$this->db->get();
-        $resultado=$consulta->result();
+        $consulta = $this->db->get();
+        $resultado = $consulta->result();
         return $resultado;
     }
 
-    //Queda por implementar correctamente las fechas
-    public function enviarMensaje($remitente,$destinatario,$mensaje){
-        $mensaje= array(
-            'ID'=>null,
-            'fecha'=>'hoy',
-            'id_remitente'=>$remitente,
-            'id_destinatario'=>$destinatario,
-            'mensaje'=>$mensaje,
+    public function enviarMensaje($remitente, $destinatario, $asunto, $mensaje)
+    {
+        date_default_timezone_set('Europe/Madrid');
+        $date = new DateTime();
+        if ($this->session->userdata('permisos') == 0) {
+            $cod_remitente = 'c' . $remitente->ID;
+            $cod_destinatario = 'e' . $destinatario->ID;
+        } else {
+            $cod_remitente = 'e' . $remitente->ID;
+            $cod_destinatario = 'c' . $destinatario->ID;
+        }
+
+        $mensaje = array(
+            'ID' => null,
+            'fecha' => $date->format(' Y-m-d H:i:s '),
+            'asunto' => $asunto,
+            'cod_remitente' => $cod_remitente,
+            'cod_destinatario' => $cod_destinatario,
+            'mensaje' => $mensaje,
         );
-        $this->db->insert('mensajes',$mensaje);
+       return $this->db->insert('mensajes', $mensaje);
     }
 }

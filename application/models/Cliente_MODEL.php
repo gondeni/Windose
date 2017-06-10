@@ -18,24 +18,32 @@ class Cliente_MODEL extends CI_Model
         $this->db->set('email', $email);
         $this->db->set('preferencia', $preferencia);
         $this->db->insert('clientes');
-
         //Mailer
     }
 
-    public function buscarCliente($ID)
+    public function buscarCliente($ID = null, $nombre = null)
     {
-
-        $this->db->select("*");
-        $this->db->from('clientes');
-        $this->db->where('ID', $ID);
-        $consulta = $this->db->get();
-        $resultado = $consulta->result();
+        if ($ID && $nombre == null) {
+            $this->db->select("*");
+            $this->db->from('clientes');
+            $this->db->where('ID', $ID);
+            $consulta = $this->db->get();
+            $resultado = $consulta->result();
+        }
+        //Este supuesto solo busca por el nombre, en caso de haber dos clientes con el mismo nombre, deberá corregirse en un futuro
+        else if ($nombre) {
+            $this->db->select("*");
+            $this->db->from('clientes');
+            $this->db->where('nombre', $nombre);
+            $consulta = $this->db->get();
+            $resultado = $consulta->result();
+        } else
+            $resultado = null;
         return $resultado;
     }
 
     public function listarClientes()
     {
-
         $this->db->select('*');
         $this->db->from('clientes');
         $consulta = $this->db->get();

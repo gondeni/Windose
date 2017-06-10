@@ -2,13 +2,14 @@
  * Created by Gonzalo on 01/06/2017.
  */
 
-/*$(document).ready(function () {
+$(document).ready(function () {
 
-    //Se muestra el modal Login
-    $("#login_entrar").click(function () {
+    /**
+     * Se muestra el modal Login
+    */
+    /*$("#login_entrar").click(function () {
         $("#modal_login").modal();
     });
-
     $("#entrar").click(function () {
 
         var usuario = $("#usuario");
@@ -20,10 +21,19 @@
         // $('label[for="usuario"]').text()
 
         // bootbox.alert(val_result);
+    })*/
 
-    })
-});*/
 
+    $('.pic').hover(function () {
+        $(this).animate({opacity: 0.7}, 500, 'easeInOutExpo');
+        $(this).next('.texto').animate({hidden: 'inherit'}, 500, 'easeInOutExpo');
+    }, function () {
+        $(this).animate({opacity: 1}, 500, 'easeInOutExpo');
+        if (!$('.texto').hasClass('hidden'))
+            $('.texto').addClass('hidden');
+    });
+
+});
 function validar_formulario(campos) {
 
     var len = campos.length;
