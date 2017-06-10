@@ -8,16 +8,23 @@ class Empleado_MODEL extends CI_Model
         parent::__construct();
     }
 
-    public function buscarEmpleado($ID)
+    public function buscarEmpleado($ID=null,$nombre=null)
     {
 
-        if (isset($ID)) {
+        if ($ID && $nombre==null) {
             $this->db->select('*');
             $this->db->from('empleados');
             $this->db->where('ID', $ID);
             $consulta = $this->db->get();
             $resultado = $consulta->result();
-        } else
+        }
+        else if($nombre){
+            $this->db->select('*');
+            $this->db->from('empleados');
+            $this->db->where('nombre', $nombre);
+            $consulta = $this->db->get();
+            $resultado = $consulta->result();
+        }else
             $resultado = null;
         return $resultado;
     }

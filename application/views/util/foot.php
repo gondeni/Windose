@@ -1,8 +1,5 @@
 </body>
 <!-- Required JavaScript Libraries -->
-<script src="<?php echo base_url(); ?>lib/jquery/jquery.min.js"></script>
-<script src="<?php echo base_url(); ?>lib/jquery/jquery-migrate.min.js"></script>
-<script src="<?php echo base_url(); ?>lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="<?php echo base_url(); ?>lib/superfish/hoverIntent.js"></script>
 <script src="<?php echo base_url(); ?>lib/superfish/superfish.min.js"></script>
 <script src="<?php echo base_url(); ?>lib/morphext/morphext.min.js"></script>
@@ -23,6 +20,10 @@
      *Inicializar fullcalendar
      * */
     $(document).ready(function () {
+
+        //Mensajes
+
+        //Fullcalendar
         $("#calendar").fullCalendar({
             timezone: 'local',
             height: '650',
@@ -67,10 +68,10 @@
         var currentSeconds = currentTime.getSeconds();
 
         // Pad the minutes and seconds with leading zeros, if required
-        currentMinutes = ( currentMinutes == 12 ) ? currentHours - 12 : currentHours;
+//        currentMinutes = ( currentMinutes == 12 ) ? currentHours - 12 : currentHours;
 
         // Convert an hours component of "0" to "12"
-        currentHours = ( currentHours == 0 ) ? 12 : currentHours;
+//        currentHours = ( currentHours == 0 ) ? 12 : currentHours;
 
         // Compose the string for display
         var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds;

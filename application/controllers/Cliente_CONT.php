@@ -21,7 +21,8 @@ class Cliente_CONT extends CI_Controller
         $datos = array(
             'mensajes' => $this->Mensaje_MODEL->buscarMensajes($this->session->userdata('ID')),
             'citas' => $this->Cita_MODEL->buscarCitas(),
-            'remitentes' => $this->Empleado_MODEL->listarEmpleados()
+            'clientes' => $this->Cliente_MODEL->listarClientes(),
+            'empleados' => $this->Empleado_MODEL->listarEmpleados()
         );
         $this->load->view('util/head');
         $this->load->view('util/cabecera_VIEW', $sesion);

@@ -13,26 +13,16 @@ class Empleado_CONT extends CI_Controller
 
     }
 
-    /*
-     * De momento sólo está implementado el servicio de mensajería para el Empleado.
-     * Lista únicamente los mensajes recibidos por este, no los envíados, por lo que
-     * se excluyen del listado aquellos cuyo remitente != al ID de la sesión.
-     *
-     *
-     * El método de las citas aún no se ha implementado.
-     * */
     public function index()
     {
-        $sesion = array(
-            'nombre' => $this->session->userdata('nombre')
-        );
         $datos = array(
             'mensajes' => $this->Mensaje_MODEL->buscarMensajes($this->session->userdata('ID')),
             'citas' => $this->Cita_MODEL->buscarCitas(),
-            'remitentes' =>$this->Cliente_MODEL->listarClientes()
+            'clientes' => $this->Cliente_MODEL->listarClientes(),
+            'empleados' => $this->Empleado_MODEL->listarEmpleados()
         );
         $this->load->view('util/head');
-        $this->load->view('util/cabecera_VIEW', $sesion);
+        $this->load->view('util/cabecera_VIEW', $this->session->userdata);
         $this->load->view('general_VIEW', $datos);
         $this->load->view('util/foot');
     }

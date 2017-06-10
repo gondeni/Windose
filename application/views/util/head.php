@@ -23,6 +23,10 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!--Fullcalendar-->
     <link rel='stylesheet' href='<?= base_url(); ?>plugins/fullcalendar-3.4.0/fullcalendar.css'/>
+    <!-- Required JavaScript Libraries -->
+    <script src="<?php echo base_url(); ?>lib/jquery/jquery.min.js"></script>
+    <script src="<?php echo base_url(); ?>lib/jquery/jquery-migrate.min.js"></script>
+    <script src="<?php echo base_url(); ?>lib/bootstrap/js/bootstrap.min.js"></script>
 
     <!--    <style type="text/css">
             body {

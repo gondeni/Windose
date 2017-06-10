@@ -747,8 +747,19 @@ body.mobile-nav-active #mobile-nav-toggle {
 .color p{
     color: white;
 }
+.tabla_mensajes th {
+    text-align: center;
+}
 /* Citas
 --------------------------------*/
+#citas {
+    background: #fff;
+    padding: 80px 0;
+}
+
+#citas .section-title {
+    text-align:left;
+}
 /* Cabecera sesion Section
 --------------------------------*/
 

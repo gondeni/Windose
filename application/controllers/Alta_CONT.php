@@ -26,7 +26,7 @@ class Alta_CONT extends CI_Controller
         $telefono = $this->input->post('telefono');
         $email = $this->input->post('email');
         $preferencia = $this->input->post('preferencia');
-        $this->Cliente_MODEL->alta($ID=null,$usuario, $password, $nombre, $ciudad, $telefono, $email, $preferencia,$coach=null);
+        $this->Cliente_MODEL->alta($ID = null, $usuario, $password, $nombre, $ciudad, $telefono, $email, $preferencia, $coach = null);
         redirect('Login_CONT');
     }
 }

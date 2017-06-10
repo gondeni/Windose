@@ -19,28 +19,26 @@ class Mensaje_MODEL extends CI_Model
         return $resultado;
     }
 
-    public function enviarMensaje($remitente, $destinatario, $mensaje)
+    public function enviarMensaje($remitente, $destinatario, $asunto, $mensaje)
     {
         date_default_timezone_set('Europe/Madrid');
         $date = new DateTime();
-
         if ($this->session->userdata('permisos') == 0) {
-            $mensaje = array(
-                'ID' => null,
-                'fecha' => $date->format('H:i:s d-m-Y '),
-                'cod_remitente' => 'c' . $this->session->$remitente,
-                'cod_destinatario' => 'e' . $destinatario,
-                'mensaje' => $mensaje,
-            );
+            $cod_remitente = 'c' . $remitente->ID;
+            $cod_destinatario = 'e' . $destinatario->ID;
         } else {
-            $mensaje = array(
-                'ID' => null,
-                'fecha' => $date->format('H:i:s d-m-Y '),
-                'cod_remitente' => 'e' . $this->session->$remitente,
-                'cod_destinatario' => 'c' . $destinatario,
-                'mensaje' => $mensaje,
-            );
+            $cod_remitente = 'e' . $remitente->ID;
+            $cod_destinatario = 'c' . $destinatario->ID;
         }
-        $this->db->insert('mensajes', $mensaje);
+
+        $mensaje = array(
+            'ID' => null,
+            'fecha' => $date->format(' Y-m-d H:i:s '),
+            'asunto' => $asunto,
+            'cod_remitente' => $cod_remitente,
+            'cod_destinatario' => $cod_destinatario,
+            'mensaje' => $mensaje,
+        );
+       return $this->db->insert('mensajes', $mensaje);
     }
 }
